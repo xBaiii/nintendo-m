@@ -11,8 +11,7 @@ jobs:
     steps:
       - name: Trigger ticket check
         run: |
-          curl -X GET "${{ secrets.VERCEL_URL }}/api/check-tickets" \
+          curl -L -X GET "${{ secrets.VERCEL_URL }}/api/check-tickets" \
             --max-time 120 \
             --retry 2 \
             -w "\nHTTP Status: %{http_code}\n"
-
